@@ -20,6 +20,13 @@ class ClickResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->join('urls', 'clicks.url_id', '=', 'urls.id')
+            ->where('urls.user_id', auth()->id());
+    }
+
     public static function form(Form $form): Form
     {
         return $form

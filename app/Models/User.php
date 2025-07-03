@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function urls(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Url::class,'user_id','id');
+    }
 }

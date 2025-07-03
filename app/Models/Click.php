@@ -9,7 +9,7 @@ class Click extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['url_id', 'ip_address'];
+    protected $fillable = ['url_id', 'ip_address','created_at'];
 
     public function url(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

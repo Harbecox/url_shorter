@@ -28,7 +28,9 @@ class Url extends Model
     {
         static::creating(function ($model) {
             $model->short_code = self::generateUniqueCode();
-            $model->user_id = auth()->id();
+            if(auth()->check()){
+                $model->user_id = auth()->id();
+            }
         });
     }
 
